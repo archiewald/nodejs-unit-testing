@@ -25,6 +25,9 @@ describe("file  to be tested", () => {
       assert.deepEqual({ name: "joe" }, { name: "joe" });
     });
     it("pending test");
+    it("should show NODE_ENV", () => {
+      console.log("ENV: ", process.env.NODE_ENV);
+    });
   });
 
   context("another function", () => {
