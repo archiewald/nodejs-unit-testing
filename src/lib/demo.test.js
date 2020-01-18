@@ -61,7 +61,12 @@ describe("demo", () => {
     });
 
     it("should stub control.warn", () => {
-      const stub = sinon.stub(console, "warn");
+      const stub = sinon
+        .stub(console, "warn")
+        .callsFake(() => console.log("im a fake console.warn()"));
+
+      demo.foo();
+      expect(stub).to.have.been.calledWith("called console.warn");
     });
   });
 });
