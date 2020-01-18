@@ -14,3 +14,8 @@ exports.addPromise = function(a, b) {
   }
   return Promise.resolve(a + b);
 };
+
+exports.foo = () => {
+  console.log("called console.log");
+  console.warn("called console.warn");
+};

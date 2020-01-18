@@ -1,8 +1,11 @@
 const chai = require("chai");
 const chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
-const expect = chai.expect;
+const sinonChai = require("sinon-chai");
+const sinon = require("sinon");
+chai.use(sinonChai);
 
+const expect = chai.expect;
 var demo = require("./demo");
 
 describe("demo", () => {
@@ -44,6 +47,21 @@ describe("demo", () => {
       await expect(demo.addPromise("1", "2")).to.be.rejectedWith(
         "string params are not allowed"
       );
+    });
+  });
+
+  context("test doubles", () => {
+    it("should spy on log", () => {
+      const spy = sinon.spy(console, "log");
+      demo.foo();
+
+      expect(spy.calledOnce).to.be.true;
+      expect(spy).to.have.been.calledOnce;
+      spy.restore();
+    });
+
+    it("should stub control.warn", () => {
+      const stub = sinon.stub(console, "warn");
     });
   });
 });
