@@ -15,7 +15,7 @@
     "cross-env": "^6.0.3",
     "jsverify": "^0.8.4",
     "knuth-shuffle": "^1.0.8",
-    "mocha": "^6.2.2",
+    "mocha": "^10.2.0",
     "rewire": "^4.0.1",
     "sinon": "^8.0.4",
     "sinon-chai": "^3.4.0"
